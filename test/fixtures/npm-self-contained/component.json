@@ -1,0 +1,9 @@
+{
+  "name": "self-contained",
+  "dependencies": {
+    "foo/dep": "*"
+  },
+  "scripts": [
+    "index.js"
+  ]
+}

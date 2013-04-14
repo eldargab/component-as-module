@@ -1,0 +1,9 @@
+{
+  "name": "with-local-dep",
+  "local": [
+    "baz"
+  ],
+  "scripts": [
+    "index.js"
+  ]
+}

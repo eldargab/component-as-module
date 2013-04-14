@@ -1,0 +1,9 @@
+{
+  "name": "bar-dependent",
+  "dependencies": {
+    "foo/bar": "*"
+  },
+  "scripts": [
+    "index.js"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "dev-dep",
+  "development": {
+    "foo/bar": "*"
+  },
+  "scripts": [
+    "index.js"
+  ]
+}

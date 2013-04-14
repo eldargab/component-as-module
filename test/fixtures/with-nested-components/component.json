@@ -1,0 +1,9 @@
+{
+  "name": "with-nested-components",
+  "dependencies": {
+    "l1/l2": "*"
+  },
+  "scripts": [
+    "index.js"
+  ]
+}

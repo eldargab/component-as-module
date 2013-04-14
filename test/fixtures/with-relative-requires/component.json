@@ -1,0 +1,8 @@
+{
+  "name": "with-relative-requires",
+  "scripts": [
+    "index.js",
+    "util.js",
+    "lib/foo.js"
+  ]
+}
