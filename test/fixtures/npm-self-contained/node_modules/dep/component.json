@@ -1,0 +1,6 @@
+{
+  "name": "dep",
+  "scripts": [
+    "index.js"
+  ]
+}
