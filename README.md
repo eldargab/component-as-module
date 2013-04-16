@@ -45,7 +45,8 @@ To make a component consumable with npm:
 i.e. to `username-foo` or to `foo`.
 
 3) List dependencies. Because npm understands github urls you
-can safely specify them in a component style:
+can safely specify them in a component style. Dependencies
+from npm repository (assuming they are components) are also ok.
 
 ```json
 {
@@ -53,7 +54,7 @@ can safely specify them in a component style:
   "dependencies": {
     "bar": "org/bar",
     "baz": "org/baz",
-    "qux": "*" // dependency from npm (assuming it is a component) is also ok.
+    "qux": "*"
   }
 }
 ```
@@ -75,14 +76,14 @@ package.json
     "bar": "org/bar",
     "baz": "org/baz",
     "qux": "*",
-    "component-as-module": "*" // add additional component-as-module dependency
-  },
+    "component-as-module": "*"
+    },
   "main": "node-main"
 }
 ```
 
 After that you can safely publish it to npm. It will work like any other npm module. (Just don't forget to include
-`component.json` to package.)
+`component.json` in a package.)
 
 ## Why
 
