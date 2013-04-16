@@ -74,7 +74,7 @@ package.json
   "dependencies": {
     "bar": "org/bar",
     "baz": "org/baz",
-    "qux": "*", // dependency from npm (assuming it is a component) is also ok.
+    "qux": "*",
     "component-as-module": "*" // add additional component-as-module dependency
   },
   "main": "node-main"
