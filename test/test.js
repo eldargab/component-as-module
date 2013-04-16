@@ -28,9 +28,14 @@ describe('Component loader', function() {
         .should.equal('foo bar baz')
     })
 
-    it('Should allow to nested components to require dependencies installed on upper levels', function() {
+    it('Should allow for nested components to require deps from upper levels', function() {
       component(fixture('with-nested-components'))
         .should.equal('l0 l1 l2 foo bar')
+    })
+
+    it('Should allow for nested modules to require deps from upper levels', function() {
+      component(fixture('with-nested-modules'))
+        .should.equal('foo bar baz')
     })
 
     it('Should allow to add lookup paths', function() {
