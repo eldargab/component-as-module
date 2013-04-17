@@ -13,11 +13,6 @@ describe('Component loader', function() {
         .should.equal('self contained foo')
     })
 
-    it('Should be able to require component installed by npm(1)', function() {
-      component(fixture('npm-self-contained'))
-        .should.equal('self contained foo')
-    })
-
     it('Should allow local components', function() {
       component(fixture('with-local-dep'))
         .should.equal('with local baz')
@@ -31,12 +26,6 @@ describe('Component loader', function() {
     it('Should allow for nested components to require deps from upper levels', function() {
       component(fixture('with-nested-components'))
         .should.equal('l0 l1 l2 foo bar')
-    })
-
-    it('Should lookup dependency by short name only in a child `node_modules` dir', function() {
-      ;(function() {
-        component(fixture('with-nested-modules'))
-      }).should.throwError('Failed to lookup component org-bar')
     })
 
     it('Should allow to add lookup paths', function() {

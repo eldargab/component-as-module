@@ -2,7 +2,7 @@
   "name": "component-as-module",
   "version": "0.0.3",
   "author": "Eldar Gabdullin <eldargab@gmail.com>",
-  "description": "Require components from node programs as well as share them with npm community.",
+  "description": "Require components from node programs.",
   "keywords": [
     "component"
   ],

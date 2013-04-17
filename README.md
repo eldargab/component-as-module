@@ -1,7 +1,9 @@
 # component-as-module
 
-It allows to require [components](http://github.com/component/component) from node modules
-as well as share them with npm community.
+It allows to require [components](http://github.com/component/component) from node programs.
+
+Another way to consume components from node is to use
+[component-npm-post-install](http://github.com/eldargab/component-npm-post-install) script.
 
 ## Examples
 
@@ -33,57 +35,7 @@ var min = req('component-min')
 
 This differs from the above examples in that all loaded components are preserved
 between calls, so, for example, requiring `component-min` second time is fast and
-you recieve the same instance.
-
-## Sharing components with npm
-
-To make a component consumable with npm:
-
-1) Create a package.json file
-
-2) Set the `name` field to either full or partial component name,
-i.e. to `username-foo` or to `foo`.
-
-3) List dependencies. Because npm understands github urls you
-can safely specify them in a component style. Dependencies
-from npm repository (assuming they are components) are also ok.
-
-```json
-{
-  "name": "foo",
-  "dependencies": {
-    "bar": "org/bar",
-    "baz": "org/baz",
-    "qux": "*"
-  }
-}
-```
-
-4) Create a node specific main file:
-
-node-main.js
-
-```javascript
-module.exports = require('component-as-module')(__dirname)
-```
-
-package.json
-
-```json
-{
-  "name": "foo",
-  "dependencies": {
-    "bar": "org/bar",
-    "baz": "org/baz",
-    "qux": "*",
-    "component-as-module": "*"
-    },
-  "main": "node-main"
-}
-```
-
-After that you can safely publish it to npm. It will work like any other npm module. (Just don't forget to include
-`component.json` in a package.)
+you get the same instance.
 
 ## Why
 
