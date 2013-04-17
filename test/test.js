@@ -30,11 +30,6 @@ describe('Component loader', function() {
       .should.equal('depends on foo-bar')
     })
 
-    it('Should respect config.paths for root component', function() {
-      component(fixture('with-paths'))
-        .should.equal('foo')
-    })
-
     it('Nested components should inherit lookup paths from parent', function() {
       component(fixture('with-nested-components'))
         .should.equal('foo bar baz')

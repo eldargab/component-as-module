@@ -2,8 +2,11 @@
 
 It allows to require [components](http://github.com/component/component) from node programs.
 
-Another way to consume components from node is to use
-[component-npm-post-install](http://github.com/eldargab/component-npm-post-install) script.
+Lookup algorithm slightly deviates from [component/builder.js] in that `component-as-module`
+does not support `.paths` field from `component.json`. On other hand each component imlicitly
+tries to find it's dependency in a `./components` dir at first. If that failed child
+delegates lookup to it's parent. So we have a behaviuor somewhat similar
+to what node does with node_modules.
 
 ## Examples
 
@@ -56,6 +59,12 @@ To run tests
 npm install -d
 npm test
 ```
+
+## Related
+
+Another way to consume components from node is to use
+[component-npm-post-install](http://github.com/eldargab/component-npm-post-install) script.
+
 
 ## License
 
