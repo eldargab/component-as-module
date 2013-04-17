@@ -2,10 +2,10 @@
 
 It allows to require [components](http://github.com/component/component) from node programs.
 
-Lookup algorithm slightly deviates from [component/builder.js] in that `component-as-module`
-does not support `.paths` field from `component.json`. On other hand each component imlicitly
-tries to find it's dependency in a `./components` dir at first. If that failed child
-delegates lookup to it's parent. So we have a behaviuor somewhat similar
+Lookup algorithm slightly deviates from [component/builder.js](https://github.com/component/builder.js)
+in that `component-as-module` does not support `.paths` field from `component.json`.
+On other hand each component imlicitly tries to find it's dependency in a `./components` dir at first.
+If that failed child delegates lookup to it's parent. So we have a behaviuor somewhat similar
 to what node does with node_modules.
 
 ## Examples
