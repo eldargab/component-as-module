@@ -30,7 +30,7 @@ describe('Component loader', function() {
       .should.equal('depends on foo-bar')
     })
 
-    it('Should respect config.paths', function() {
+    it('Should respect config.paths for root component', function() {
       component(fixture('with-paths'))
         .should.equal('foo')
     })

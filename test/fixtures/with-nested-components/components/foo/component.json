@@ -5,8 +5,5 @@
   ],
   "scripts": [
     "index.js"
-  ],
-  "paths": [
-    "lib"
   ]
 }
