@@ -33,9 +33,10 @@ describe('Component loader', function() {
         .should.equal('l0 l1 l2 foo bar')
     })
 
-    it('Should allow for nested modules to require deps from upper levels', function() {
-      component(fixture('with-nested-modules'))
-        .should.equal('foo bar baz')
+    it('Should lookup dependency by short name only in a child `node_modules` dir', function() {
+      ;(function() {
+        component(fixture('with-nested-modules'))
+      }).should.throwError('Failed to lookup component org-bar')
     })
 
     it('Should allow to add lookup paths', function() {
@@ -69,6 +70,13 @@ describe('Component loader', function() {
       })
       req('component-self-contained').should.equal('self contained foo')
       req('foo-bar-dependent').should.equal('depends on foo-bar')
+    })
+
+    it('Second require call should give the same instance', function() {
+      var req = component.createRequire(function(loader) {
+        loader.addLookup(fixture('.'))
+      })
+      req('object-component').should.equal(req('object-component'))
     })
   })
 })
