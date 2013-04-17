@@ -61,6 +61,14 @@ describe('Component loader', function() {
         })
       }).should.throwError(/not specified as a dependency/)
     })
+
+    it('Should give access to node globals', function() {
+      var globals = component(fixture('globals'))
+      globals.process.should.equal(process)
+      globals.Buffer.should.equal(Buffer)
+      globals.__dirname.should.equal(fixture('globals'))
+      globals.__filename.should.equal(fixture('globals/index.js'))
+    })
   })
 
   describe('.createRequire(setup)', function() {
