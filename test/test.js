@@ -8,7 +8,7 @@ function fixture(path) {
 
 describe('Component loader', function() {
   describe('component(name, [setup])', function() {
-    it('Should be able to require component installed by component(1)', function() {
+    it('Should be able to require self contained components', function() {
       component(fixture('component-self-contained'))
         .should.equal('self contained foo')
     })
@@ -23,16 +23,21 @@ describe('Component loader', function() {
         .should.equal('foo bar baz')
     })
 
-    it('Should allow for nested components to require deps from upper levels', function() {
-      component(fixture('with-nested-components'))
-        .should.equal('l0 l1 l2 foo bar')
-    })
-
     it('Should allow to add lookup paths', function() {
       component(fixture('foo-bar-dependent'), function(loader) {
         loader.addLookup(fixture('.'))
       })
       .should.equal('depends on foo-bar')
+    })
+
+    it('Should respect config.paths', function() {
+      component(fixture('with-paths'))
+        .should.equal('foo')
+    })
+
+    it('Nested components should inherit lookup paths from parent', function() {
+      component(fixture('with-nested-components'))
+        .should.equal('foo bar baz')
     })
 
     it('Should allow to require development dependencies in dev mode', function() {
@@ -65,7 +70,7 @@ describe('Component loader', function() {
       var req = component.createRequire(function(loader) {
         loader.addLookup(fixture('.'))
       })
-      req('component-self-contained').should.equal('self contained foo')
+      req('foo-bar').should.equal('foo-bar')
       req('foo-bar-dependent').should.equal('depends on foo-bar')
     })
 

@@ -1,9 +1,0 @@
-{
-  "name": "l2",
-  "dependencies": {
-    "l2/foo-bar": "*"
-  },
-  "scripts": [
-    "index.js"
-  ]
-}

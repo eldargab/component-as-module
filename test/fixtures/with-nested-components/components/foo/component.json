@@ -1,9 +1,12 @@
 {
-  "name": "with-nested-components",
+  "name": "foo",
   "local": [
-    "foo"
+    "baz"
   ],
   "scripts": [
     "index.js"
+  ],
+  "paths": [
+    "lib"
   ]
 }

@@ -1,0 +1,12 @@
+{
+  "name": "with-paths",
+  "scripts": [
+    "index.js"
+  ],
+  "local": [
+    "foo"
+  ],
+  "paths": [
+    "lib"
+  ]
+}

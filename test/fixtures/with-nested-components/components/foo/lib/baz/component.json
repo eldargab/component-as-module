@@ -1,8 +1,7 @@
 {
-  "name": "foo-bar",
+  "name": "baz",
   "dependencies": {
-    "l1/foo": "*",
-    "l1/bar": "*"
+    "org/bar": "*"
   },
   "scripts": [
     "index.js"

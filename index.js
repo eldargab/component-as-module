@@ -24,7 +24,8 @@ var Loader = require('./lib/loader')
 
 exports = module.exports = function requireComponent(dir, setup) {
   var loader = new Loader(dir)
-  loader.implicitPaths()
+  loader.addRelativeLookup('components')
+  loader.includePathsFromConfig()
   setup && setup(loader)
   return loader.load()
 }
