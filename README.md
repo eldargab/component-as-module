@@ -2,8 +2,9 @@
 
 It allows to require [components](http://github.com/component/component) from node programs.
 
-Lookup algorithm slightly deviates from [component/builder.js](https://github.com/component/builder.js)
-in that `component-as-module` does not support `.paths` field from `component.json`.
+Lookup algorithm is slightly different
+from [component/builder.js](https://github.com/component/builder.js)
+in that it does not respect `.paths` field from `component.json`.
 On other hand each component imlicitly tries to find it's dependency in a `./components` dir at first.
 If that failed child delegates lookup to it's parent. So we have a behaviuor somewhat similar
 to what node does with node_modules.
@@ -26,7 +27,7 @@ var boot = component('boot', function(loader) {
 })
 ```
 
-Alternative way to require components is to create a special require function:
+Alternative way is to create a special require function:
 
 ```javascript
 var req = component.createRequire(function (loader) {
@@ -39,11 +40,6 @@ var min = req('component-min')
 This differs from the above examples in that all loaded components are preserved
 between calls, so, for example, requiring `component-min` second time is fast and
 you get the same instance.
-
-## Why
-
-I believe there should be only one package convention for the web. No matter what side it is.
-Component is a good one. This project should help to use it for both node and browser.
 
 ## Installation
 
@@ -62,9 +58,9 @@ npm test
 
 ## Related
 
-Another way to consume components from node is to use
-[component-npm-post-install](http://github.com/eldargab/component-npm-post-install) script.
-
+There is also
+[component-npm-post-install](http://github.com/eldargab/component-npm-post-install) script
+which can be used to make component package compatible with npm.
 
 ## License
 
