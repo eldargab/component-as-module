@@ -1,8 +1,8 @@
 {
   "name": "component-as-module",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "author": "Eldar Gabdullin <eldargab@gmail.com>",
-  "description": "Require components from node programs.",
+  "description": "Require components from node programs",
   "keywords": [
     "component"
   ],
