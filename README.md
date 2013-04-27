@@ -1,13 +1,13 @@
 # component-as-module
 
-It allows to require [components](http://github.com/component/component) from node programs.
+It allows you to require [components](http://github.com/component/component) from node programs.
 
 Lookup algorithm is slightly different
 from [component/builder.js](https://github.com/component/builder.js)
 in that it does not respect `.paths` field from `component.json`.
-On other hand each component imlicitly tries to find it's dependency in a `./components` dir at first.
-If that failed child delegates lookup to it's parent. So we have a behaviuor somewhat similar
-to what node does with node_modules.
+On the other hand each component implicitly tries to find its dependency in a `./components` dir at first.
+If that fails, child delegates lookup to its parent. So we have a behaviour somewhat similar
+to what node does with `node_modules`.
 
 ## Examples
 
@@ -38,7 +38,7 @@ var min = req('component-min')
 ```
 
 This differs from the above examples in that all loaded components are preserved
-between calls, so, for example, requiring `component-min` second time is fast and
+between calls, so, for example, requiring `component-min` the second time is fast and
 you get the same instance.
 
 ## Installation
