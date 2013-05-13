@@ -5,7 +5,6 @@ It allows you to require [components](http://github.com/component/component) fro
 Lookup algorithm is slightly different
 from [component/builder.js](https://github.com/component/builder.js)
 in that it does not respect `.paths` field from `component.json`.
-It also executes every file in a new vm context so globals are not shared.
 
 ## Examples
 
