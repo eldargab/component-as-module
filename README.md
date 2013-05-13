@@ -34,7 +34,7 @@ var boot = component('boot', function(loader) {
 Alternative way to require components is to create a special "require" function:
 
 ```javascript
-var req = component.createRequire(function (loader) {
+var req = component.createRequire(function(loader) {
   loader.addLookup('components')
 })
 
