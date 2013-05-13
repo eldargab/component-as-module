@@ -48,8 +48,8 @@ describe('Component loader', function() {
 
     it('Should allow to register known components', function() {
       component(fixture('foo-bar-dependent'), function(loader) {
-        loader.register('foo-bar', function(file) {
-          file.should.equal('index')
+        loader.register('foo-bar', function(p) {
+          p.should.equal('foo-bar/index')
           return 'bar'
         })
       }).should.equal('depends on bar')
