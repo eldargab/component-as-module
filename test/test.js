@@ -65,7 +65,7 @@ describe('Component loader', function() {
 
     it('Should give access to globals', function() {
       var globals = component(fixture('globals'))
-      globals.Array.should.equal(Array)
+      Array.isArray(new globals.Array).should.be.true
       globals.__dirname.should.equal(fixture('globals'))
       globals.__filename.should.equal(fixture('globals/index.js'))
     })
