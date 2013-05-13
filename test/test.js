@@ -51,6 +51,23 @@ describe('Component loader', function() {
       }).should.throwError(/not specified as a dependency/)
     })
 
+    it('Should allow to register known components', function() {
+      component(fixture('foo-bar-dependent'), function(loader) {
+        loader.register('foo-bar', function(file) {
+          file.should.equal('index')
+          return 'bar'
+        })
+      }).should.equal('depends on bar')
+    })
+
+    it('Known components should have precedence over lookup procedure', function() {
+      component(fixture('component-self-contained'), function(loader) {
+        loader.register('foo-dep', function() {
+          return 'component'
+        })
+      }).should.equal('self contained component')
+    })
+
     it('Should give access to node globals', function() {
       var globals = component(fixture('globals'))
       globals.process.should.equal(process)

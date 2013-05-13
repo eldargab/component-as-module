@@ -8,8 +8,7 @@ var Loader = require('./lib/loader')
  *    var component = require('component-as-module')
  *    var min = component('component-min')
  *
- *  You can also pass optional `setup` function to add lookup paths
- *  or enable development mode
+ *  You can also pass optional `setup` function to add lookup paths, etc
  *
  *    var min = component('component-min', function(loader) {
  *      loader.addLookup('fixtures')
@@ -44,7 +43,7 @@ exports = module.exports = function requireComponent(dir, setup) {
  *  This differs from requiring with `component()` in that
  *  all loaded modules are cached and available for next requires.
  *
- *    var min = req('component-min') // second time (fast)
+ *    var min = req('component-min') // second time (fast and the same instance)
  *
  * @param {Function} setup (required)
  * @return {Function} require function
@@ -53,7 +52,7 @@ exports = module.exports = function requireComponent(dir, setup) {
 
 exports.createRequire = function(setup) {
   if (typeof setup != 'function')
-    throw new Error('You must provide setup function to setup loader.')
+    throw new TypeError('You must provide setup function to setup loader.')
 
   var loader = new Loader('.')
 

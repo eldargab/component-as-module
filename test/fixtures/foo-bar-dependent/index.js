@@ -1,1 +1,1 @@
-module.exports = 'depends on ' + require('bar')
+module.exports = 'depends on ' + require('bar/index')
