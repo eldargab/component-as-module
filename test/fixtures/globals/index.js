@@ -1,8 +1,4 @@
-exports.process = process
-
-exports.Buffer = Buffer
-
-exports.setImmediate = setImmediate
+exports.Array = Array
 
 exports.__filename = __filename
 

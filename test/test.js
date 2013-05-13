@@ -63,10 +63,9 @@ describe('Component loader', function() {
       }).should.equal('self contained component')
     })
 
-    it('Should give access to node globals', function() {
+    it('Should give access to globals', function() {
       var globals = component(fixture('globals'))
-      globals.process.should.equal(process)
-      globals.Buffer.should.equal(Buffer)
+      globals.Array.should.equal(Array)
       globals.__dirname.should.equal(fixture('globals'))
       globals.__filename.should.equal(fixture('globals/index.js'))
     })
