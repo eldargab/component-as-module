@@ -5,29 +5,33 @@ It allows you to require [components](http://github.com/component/component) fro
 Lookup algorithm is slightly different
 from [component/builder.js](https://github.com/component/builder.js)
 in that it does not respect `.paths` field from `component.json`.
-On the other hand each component implicitly tries to find its dependency in a `./components` dir at first.
-If that fails, child delegates lookup to its parent. So we have a behaviour somewhat similar
-to what node does with `node_modules`.
+It also executes every file in a new vm context so globals are not shared.
 
 ## Examples
 
-Require stand-alone component (with all dependencies in a components dir):
+Require stand-alone component (with all dependencies in a `./components` dir):
 
 ```javascript
 var component = require('component-as-module')
-var min = component('component-min')
+var min = component('/path-to/component-min')
 ```
 
-Add additional lookup paths or enable dev dependencies:
+Setup loader:
 
 ```javascript
 var boot = component('boot', function(loader) {
-  loader.addLookup('node_modules')
+  // add lookup paths
+  loader.addLookup('./components')
+
+  // enable dev dependencies
   loader.development()
+
+  // register node module as a component
+  loader.register('foo', require)
 })
 ```
 
-Alternative way is to create a special require function:
+Alternative way to require components is to create a special "require" function:
 
 ```javascript
 var req = component.createRequire(function (loader) {
@@ -37,7 +41,7 @@ var req = component.createRequire(function (loader) {
 var min = req('component-min')
 ```
 
-This differs from the above examples in that all loaded components are preserved
+This differs in that all loaded components are preserved
 between calls, so, for example, requiring `component-min` the second time is fast and
 you get the same instance.
 

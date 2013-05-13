@@ -31,6 +31,9 @@ exports = module.exports = function requireComponent(dir, setup) {
 /**
  * Create require function for components.
  *
+ * This differs from requiring with `component()` in that
+ * all loaded modules are cached and available for next requires.
+ *
  * Examples:
  *
  *    var component = require('component-as-module')
@@ -39,11 +42,6 @@ exports = module.exports = function requireComponent(dir, setup) {
  *    })
  *
  *    var min = req('component-min')
- *
- *  This differs from requiring with `component()` in that
- *  all loaded modules are cached and available for next requires.
- *
- *    var min = req('component-min') // second time (fast and the same instance)
  *
  * @param {Function} setup (required)
  * @return {Function} require function
