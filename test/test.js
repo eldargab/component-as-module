@@ -30,6 +30,11 @@ describe('Component loader', function() {
       .should.equal('depends on foo-bar')
     })
 
+    it('Child components should inherit lookup paths from the root', function() {
+      component(fixture('with-dep-with-dep'))
+        .should.equal('foo')
+    })
+
     it('Should allow to require development dependencies in dev mode', function() {
       component(fixture('with-dev-dep'), function(loader) {
         loader.development()

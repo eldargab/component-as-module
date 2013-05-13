@@ -1,0 +1,9 @@
+{
+  "name": "bar",
+  "dependencies": {
+    "org/foo": "*"
+  },
+  "scripts": [
+    "index.js"
+  ]
+}

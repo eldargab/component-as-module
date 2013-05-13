@@ -1,0 +1,9 @@
+{
+  "name": "childs",
+  "dependencies": {
+    "org/bar": "*"
+  },
+  "scripts": [
+    "index.js"
+  ]
+}
