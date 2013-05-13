@@ -1,9 +1,0 @@
-{
-  "name": "foo",
-  "local": [
-    "baz"
-  ],
-  "scripts": [
-    "index.js"
-  ]
-}

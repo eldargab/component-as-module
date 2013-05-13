@@ -7,7 +7,7 @@ function fixture(path) {
 }
 
 describe('Component loader', function() {
-  describe('component(name, [setup])', function() {
+  describe('component(dir, [setup])', function() {
     it('Should be able to require self contained components', function() {
       component(fixture('component-self-contained'))
         .should.equal('self contained foo')
@@ -28,11 +28,6 @@ describe('Component loader', function() {
         loader.addLookup(fixture('.'))
       })
       .should.equal('depends on foo-bar')
-    })
-
-    it('Nested components should inherit lookup paths from parent', function() {
-      component(fixture('with-nested-components'))
-        .should.equal('foo bar baz')
     })
 
     it('Should allow to require development dependencies in dev mode', function() {

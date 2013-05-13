@@ -1,9 +1,0 @@
-{
-  "name": "with-nested-components",
-  "local": [
-    "foo"
-  ],
-  "scripts": [
-    "index.js"
-  ]
-}
