@@ -1,8 +1,16 @@
 
+0.2.0 / 2013-05-13
+==================
+
+  * remove support for nested components
+  * do not run every script in a new context
+  * add loader.register()
+  * add loader.use()
+
 0.1.0 / 2013-04-18
 ==================
 
-  * deprecate lookup for components from npm
+  * remove lookup for components from npm
 
 0.0.3 / 2013-04-17
 ==================
