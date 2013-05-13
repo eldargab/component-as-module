@@ -87,4 +87,17 @@ describe('Component loader', function() {
       req('object-component').should.equal(req('object-component'))
     })
   })
+
+  describe('loader.use()', function() {
+    it('Should apply the given setup function', function(done) {
+      component.createRequire(function(loader) {
+        loader.use(function(l, a, b) {
+          l.should.equal(loader)
+          a.should.equal('a')
+          b.should.equal('b')
+          done()
+        }, 'a', 'b')
+      })
+    })
+  })
 })
