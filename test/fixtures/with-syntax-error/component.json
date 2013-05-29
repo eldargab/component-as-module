@@ -1,0 +1,6 @@
+{
+  "name": "with-syntax-error",
+  "scripts": [
+    "index.js"
+  ]
+}

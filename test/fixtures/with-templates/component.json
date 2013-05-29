@@ -1,0 +1,9 @@
+{
+  "name": "with-templates",
+  "scripts": [
+    "index.js"
+  ],
+  "templates": [
+    "hello.txt"
+  ]
+}

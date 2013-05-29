@@ -12,7 +12,8 @@
   },
   "devDependencies": {
     "mocha": "*",
-    "should": "*"
+    "should": "*",
+    "string-to-js": "*"
   },
   "scripts": {
     "test": "mocha"

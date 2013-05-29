@@ -1,5 +1,7 @@
 var should = require('should')
 var Path = require('path')
+var compile = require('string-to-js')
+var fs = require('fs')
 var component = require('..')
 
 function fixture(path) {
@@ -73,6 +75,20 @@ describe('Component loader', function() {
       Array.isArray(new globals.Array).should.be.true
       globals.__dirname.should.equal(fixture('globals'))
       globals.__filename.should.equal(fixture('globals/index.js'))
+    })
+
+    it('Should support component-builder plugins', function() {
+      component(fixture('with-templates'), function(loader) {
+        loader.hook('before scripts', function(pkg) {
+          pkg.removeFile('scripts', 'index.js')
+          var templates = pkg.config.templates || []
+          templates.forEach(function(tpl) {
+            var str = fs.readFileSync(pkg.path(tpl), 'utf8').trim()
+            var js = compile(str)
+            pkg.addFile('scripts', 'index.js', js)
+          })
+        })
+      }).should.equal('Hello world!')
     })
   })
 
